@@ -37,7 +37,7 @@ app.use(express.static('dist'))
 console.log(__dirname)
 
 // Setup Server
-const port = 8082;
+const port = 8085;
 const server = app.listen(port,listening);
 
 // callback to debug
