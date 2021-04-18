@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Evaluate News</title>
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/style.scss">
+</head>
+ <body>
+<div id = "app">
+  <div class ="holder headline">
+    Evaluate News App
+  </div>
+  <div class ="holder Article">
+    <label for="Articles">Article</label>
+    <div class ="subfeel">
+      <textarea class= "myInput" id="Article" placeholder="Enter The Article or URL" rows="9" cols="50"></textarea>
+    </div>
+  </div>
+  <div class ="holder entry">
+    <div class = "title">Review</div>
+   <div id = "entryHolder">
+    <div id = "model"></div> 
+    <div id = "score_tag"></div>
+    <div id = "agreement"></div> 
+    <div id = "subjectivity"></div>
+    <div id = "confidence"></div>
+    <div id = "irony"></div>
+  </div>
+  </div>
+  <div id = "buttonarea"> 
+  <button class="btn" id="generate" type = "submit"> Generate </button>
+  </div>
+  
+  </div>
+<script src="../index.js" type="text/javascript"></script>
+
+</body>
+</html>
