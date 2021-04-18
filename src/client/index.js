@@ -5,7 +5,7 @@ const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
 
 
 // Personal API Key for meaningcloud API
-const apiKey = process.env.API_KEY;
+const apiKey = '236dfc8434e65a2139ca5f8353177386';
 
 // Event listener to add function to existing HTML DOM element
 
