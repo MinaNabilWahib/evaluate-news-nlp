@@ -26,3 +26,9 @@ This project is for implementing those concepts:
 
 dependencies conflicts !!!
 the solution is to search for the latest versions for used npm libraries expect webpack-cli use version 3 as version 4 not working with web server dev 
+
+## to run plzzzzzz
+
+npm run build-prod
+
+npm start run
