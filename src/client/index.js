@@ -14,31 +14,34 @@ document.getElementById('generate').addEventListener('click', performAction);
 function performAction(e)
 {
     const article = document.getElementById('Article').value;
-    checkArticle(article)
+    if(checkArticle(article))
+    {
         try{
-          postData('/getReview',{article:article})
-      // getReview(baseURL,apiKey,article)
-        .then(function(data)
+              postData('/getReview',{article:article})
+          // getReview(baseURL,apiKey,article)
+              .then(function(data)
+              {
+                  // Add data
+                  //console.log(data);
+                  if(typeof data !== "undefined")
+                  {
+                    try{
+                    postData('/addReview', {score_tag: data.score_tag,agreement: data.agreement,subjectivity: data.subjectivity,confidence: data.confidence, irony: data.irony} );
+                    updateUI()
+                    }
+                    catch(error){
+                      console.log("error", error);
+                    }
+                    
+                  }
+                
+              })
+        }catch(error)
         {
-            // Add data
-            //console.log(data);
-            if(typeof data !== "undefined")
-            {
-              try{
-              postData('/addReview', {score_tag: data.score_tag,agreement: data.agreement,subjectivity: data.subjectivity,confidence: data.confidence, irony: data.irony} );
-              updateUI()
-              }
-              catch(error){
-                console.log("error", error);
-              }
-              
-            }
-           
-        })
-      }catch(error)
-      {
-        console.log("error", error);
-      }
+          console.log("error", error);
+        }
+    }
+      
 }
 
 
