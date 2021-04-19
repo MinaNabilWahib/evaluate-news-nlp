@@ -1,15 +1,14 @@
 function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText);
-    let names = [
-        "Picard",
-        "Janeway",
-        "Kirk",
-        "Archer",
-        "Georgiou"
-    ]
 
-    if(names.includes(inputText)) {
-        alert("Welcome, Captain!")
+    
+    if(inputText == '' || inputText ==null )
+    {
+        alert("name is  mandatory");
+        return false;
+    }else
+    {
+        return true ;
     }
 }
 

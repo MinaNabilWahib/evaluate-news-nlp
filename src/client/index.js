@@ -1,6 +1,8 @@
 
 import './styles/style.scss'
 
+import {checkArticle} from "./js/articleChecker"
+
 
 
 // Event listener to add function to existing HTML DOM element
@@ -12,11 +14,7 @@ document.getElementById('generate').addEventListener('click', performAction);
 function performAction(e)
 {
     const article = document.getElementById('Article').value;
-    if(article == '')
-    {
-        alert("No article was entered please enter an article");
-    }else
-    {
+    checkArticle(article)
         try{
           postData('/getReview',{article:article})
       // getReview(baseURL,apiKey,article)
@@ -27,7 +25,7 @@ function performAction(e)
             if(typeof data !== "undefined")
             {
               try{
-              postData('/addReview', {model: data.model,score_tag: data.score_tag,agreement: data.agreement,subjectivity: data.subjectivity,confidence: data.confidence, irony: data.irony} );
+              postData('/addReview', {score_tag: data.score_tag,agreement: data.agreement,subjectivity: data.subjectivity,confidence: data.confidence, irony: data.irony} );
               updateUI()
               }
               catch(error){
@@ -41,7 +39,6 @@ function performAction(e)
       {
         console.log("error", error);
       }
-  }
 }
 
 
@@ -80,7 +77,6 @@ const updateUI = async () =>
     try
     {
       const allData = await request.json();
-      document.getElementById('model').innerHTML = 'model is:  '+allData.model;
       document.getElementById('score_tag').innerHTML = 'score_tag:  '+allData.score_tag;
       document.getElementById('agreement').innerHTML = 'agreement is:  '+allData.agreement;
       document.getElementById('subjectivity').innerHTML = 'subjectivity is:  '+allData.subjectivity;

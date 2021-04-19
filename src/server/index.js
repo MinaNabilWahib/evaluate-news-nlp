@@ -37,7 +37,7 @@ app.use(express.static('dist'))
 console.log(__dirname)
 
 // Setup Server
-const port = 8099;
+const port = 8091;
 const server = app.listen(port,listening);
 
 // callback to debug
@@ -92,7 +92,6 @@ app.post('/addReview', addReview);
 
 function addReview (req,res)
 {
-    projectData.model = req.body.model;
     projectData.score_tag = req.body.score_tag;
     projectData.agreement = req.body.agreement;
     projectData.subjectivity = req.body.subjectivity;
